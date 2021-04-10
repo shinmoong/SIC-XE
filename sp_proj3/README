@@ -1,0 +1,78 @@
+To compile, enter "make".
+Then, output binary file will be made which named "20151561.out".
+
+To execute the program, enter "./20151561.out".
+Program can accept some user commands.
+
+1. h[elp] (you can enter "h" or "help")
+Display all supporting commands.
+
+2. d[ir]
+Shows the files in the current directory.
+Some files have "/" or "*" next to the name.
+("/": directory, "*": executable file)
+
+3. q[uit]
+Exit the program.
+
+4. hi[story]
+Show the previous commands.
+
+5. du[mp] [start, end]
+Output the contents of the memory space in 3 cases.
+
+-case1. dump: Print 160bytes of memory from (last address + 1).
+-case2. dump start: Print 160bytes of memory from start address.
+-case3. dump start, end: Print memory from start address to end address.
+
+6. e[dit] address, value
+Sets the memory content at address to value.
+
+7. f[ill] start, end, value
+Sets the memory contents from start address to end address to value.
+
+8. reset
+Sets the memory contents of the entire memory to zero.
+
+9. opcode mnemonic
+Shows the opcode of the corresponding mnemonic.
+
+10. opcodelist
+Shows the opcode hash table.
+
+11. assemble filename
+Make assembly file into object file and list file by using SIC/XE instructions.
+
+12. type filename
+Displays content of a file. 
+You can see error message if the file doesn't exist or isn't file(like directory).
+
+13. symbol
+Displays symbol table created during the assembling process if assemble filename command success. 
+Symbols will sorted by their names in descending order. 
+Next to symbol is the address of the symbol.
+
+14. progaddr [address]
+Set the program starting address. If address is not given, starting address is 0x00.
+
+15. loader [filename1] [filename2] [filename3]
+Read 1 ~ 3 object files, and link, load onto the memory.
+If load success, you can see the load map on the screen.
+Ex) control     symbol     address    length
+    section     name
+    ________________________________________
+    ~~~~~       ~~~~~      ~~~~~      ~~~~~
+    ________________________________________
+                      total length   ~~~~~
+
+16. run
+Execute the program which is loaded by loader, starting at the program starting address.
+
+17. bp [address|clear]
+This command manipulates breakpoints. When the PC comes to the breakpoint, run will stop.
+1) bp [address]
+   Set the breakpoint.
+2) bp
+   Print all breakpoints on the screen.
+3) bp clear
+   Erase all breakpoints.
